@@ -1,0 +1,131 @@
+---
+import hamburger from "../../public/assets/icon/icon_hamburger.svg"
+const links = [
+    {
+        content: 'INICIO',
+        href: '#INICIO',
+        download: false
+    }, 
+    {
+        content: 'SOBRE MI',
+        href: '#SobreMi',
+        download: false
+    },
+    {
+        content: 'PROYECTOS',
+        href: '#Proyectos',
+        download: false
+    },
+    {
+        content: 'CV',
+        href: '../../public/text-prueba.pdf',
+        download: true
+    }
+]
+---
+<style>
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+        padding: 0 var(--padding-container);
+        position: relative;
+    }
+
+    .header__logo {
+        font-family: 'inter';
+        font-size: 1.5em;
+    }
+
+    .header__hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header__navBar {
+        display: none;
+        height: calc(100vh - 80px);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .header__navBar.is-active {
+        display: block;
+    }
+
+    .header__navBar ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        height: 40%;
+        background-color: #FBD065;
+    }
+
+    .header__link {
+        font-family: 'inter';
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    @media (min-width: 700px) {
+        .header__hamburger {
+            display: none;
+        }
+        .header__navBar {
+            display: flex;
+            background-color: initial;
+            height: initial;
+            position: initial;
+        }
+        .header__navBar ul {
+            flex-direction: row;
+        }
+    }
+</style>
+<header class="header">
+    <div>
+        <a class="header__logo" href="./">Alan Luna</a>
+    </div>
+    <button id="btn" class="header__hamburger" type="button" aria-label="toggle menu" aria-expanded="false" aria-controls="navBar">
+        <img class="icon__hamburger" src={ hamburger } />
+    </button>
+    <nav class="header__navBar" id="navBar">
+        <ul>
+            {
+                links.map( link => (
+                <li>
+                    <a class="header__link" href={ link.href }>{ link.content }</a>
+                </li>
+                ))
+            }       
+        </ul>
+    </nav>
+</header>
+
+<script type="module">
+	const $btn = document.querySelector('.header__hamburger')
+	const $navBar = document.querySelector('#navBar')
+    const $img = document.querySelector('.icon__hamburger')
+
+	$btn.addEventListener('click', () => {
+		const toggle = $btn.attributes['aria-expanded'].value
+
+		if(toggle == 'true') {
+			$btn.attributes['aria-expanded'].value = 'false'
+            $img.attributes['src'].value = '../../public/assets/icon/icon_hamburger.svg'
+
+		} else {
+			$btn.attributes['aria-expanded'].value = 'true'
+            $img.attributes['src'].value = '../../public/assets/icon/icon_close.svg'
+		}
+
+		$navBar.classList.toggle('is-active')
+	})
+</script>
