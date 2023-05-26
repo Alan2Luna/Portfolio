@@ -49,7 +49,7 @@
 
 :root {
     --padding-container: 16px;
-    
+    --padding-container-tb: 80px;
 }
 @media (min-width: 700px) {
     :root {

@@ -50,8 +50,8 @@ const projects = [
 	}
 	@media (min-width: 700px) {
 		.hero {
-			padding-top: 50px;
-			padding-bottom: 50px;
+			padding-top: var(--padding-container-tb);
+			padding-bottom: var(--padding-container-tb);
 		}
 		.hero__foto {
 			display: block;
@@ -63,6 +63,15 @@ const projects = [
 			flex-grow: 1;
 			flex-basis: 0;
 			text-align: left;
+		}
+		.hero__font--light {
+			font-size: 24px;
+		}
+		.hero__font--bold {
+			font-size: 28px;
+		}
+		.socials__container li a img {
+			width: 30px;
 		}
 		.hero__foto {
 			flex-grow: 1;
@@ -80,7 +89,7 @@ const projects = [
 	.about-me {
 		background-color: #202225;
 		color: #ffffff;
-		padding: 75px 16px;
+		padding: var(--padding-container-tb) var(--padding-container);
 		text-align: center;
 	}
 	.about-me__introduction {
@@ -95,12 +104,17 @@ const projects = [
 		text-align: center;
 	}
 	.projects {
-		padding: 75px 16px;
+		padding: var(--padding-container-tb) var(--padding-container);
 	}
 	.projects__container {
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
+	}
+	@media (min-width: 700px) {
+		.projects__container {
+			flex-direction: row;
+		}
 	}
 	.technologies {
 		padding: 45px 16px;
