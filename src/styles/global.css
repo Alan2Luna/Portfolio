@@ -50,10 +50,19 @@
 :root {
     --padding-container: 16px;
     --padding-container-tb: 80px;
+    --primary-color: #FBD065;
+    --secondary-color: #202225;
 }
+
 @media (min-width: 700px) {
     :root {
-        --padding-container: 28px
+        --padding-container: 38px;
+        --padding-container-tb: 94px;
+    }
+}
+@media (min-width: 1024px) {
+    :root {
+        --padding-container: 80px
     }
 }
 html {
@@ -88,4 +97,23 @@ button {
     background-color: inherit;
     border: none;
     padding: 0;
+}
+
+.isHidden {
+    opacity: 0;
+}
+
+.fadeInUp {
+    animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform:translate(0px, 100px); 
+        opacity: 0;
+    }
+    100% {
+        transform:translate(0px, 0); 
+        opacity: 1;
+    } 
 }

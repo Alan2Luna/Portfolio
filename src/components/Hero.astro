@@ -1,0 +1,119 @@
+---
+import Alan from '../../public/Alan.jpg'
+import github from '../../public/assets/icon/icon-github.svg'
+import email from '../../public/assets/icon/icon-email.svg'
+import linkedin from '../../public/assets/icon/icon-linkedin.svg'
+---
+<style>
+    .hero {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		height: calc(100vh - 80px);
+		padding: 0 var(--padding-container);
+	}
+	.hero__welcome h1 {
+		margin-bottom: 16px;
+	}
+    .hero__span {
+        display: block;
+        margin-bottom: 8px;
+    }
+	.hero__font--light {
+		font-family: 'mulish';
+		font-weight: 600;
+		font-size: 26px;
+	}
+	.hero__font--bold {
+		display: block;
+		font-family: 'mulish';
+		font-weight: 700;
+		font-size: 30px;
+	}
+	.hero__foto {
+		display: none;
+	}
+	.socials__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 18px;
+	}
+	.social__logo {
+		height: 40px;
+		width: 40px;
+	}
+	@media (min-width: 700px) {
+		.hero {
+			padding-top: var(--padding-container-tb);
+			padding-bottom: var(--padding-container-tb);
+		}
+		.hero__foto {
+			display: block;
+		}
+		.hero {
+			justify-content: space-between;
+		}
+		.hero__welcome {
+			flex-grow: 1;
+			flex-basis: 0;
+			text-align: left;
+		}
+		.hero__font--light {
+			font-size: 24px;
+		}
+		.hero__font--bold {
+			font-size: 28px;
+		}
+		.socials__container li a img {
+			width: 30px;
+		}
+		.hero__foto {
+			flex-grow: 1;
+			flex-basis: 0;
+		}
+		.foto__container img {
+			width: 70%;
+			margin: 0 auto;
+			border-radius: 50%;
+		}
+		.socials__container {
+			justify-content: flex-start;
+		}
+	}
+	@media (min-width: 1024px) {
+		.hero__font--light {
+			font-size: 34px;
+		}
+		.hero__font--bold {
+			font-size: 38px;
+		}
+		.socials__container li a img {
+			width: 38px;
+		}
+	}
+</style>
+<section class="hero">
+    <div class="hero__welcome isHidden" data-effect="fadeIn">
+        <span class="hero__font--light hero__span">¡Hey! 👋🏾</span>
+        <h1 class="introduce__myself">
+            <span class="hero__font--light hero__span">
+                Soy Alan Luna,
+            </span>
+            <span class="hero__font--bold">
+                Desarrollador Frontend
+            </span>
+        </h1>
+        <ul class="socials__container">
+            <li><a href=""><img class="social__logo" src={ github } alt=""></a></li>
+            <li><a href=""><img class="social__logo" src={ email } alt=""></a></li>
+            <li><a href=""><img class="social__logo" src={ linkedin } alt=""></a></li>
+        </ul>
+    </div>
+    <div class="hero__foto isHidden" data-effect="fadeIn">
+        <div class="foto__container">
+            <img src={ Alan } alt="Foto de Alan Luna">
+        </div>
+    </div>
+</section>

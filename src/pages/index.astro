@@ -1,9 +1,7 @@
 ---
-import Alan from '../../public/Alan.jpg'
-import github from '../../public/assets/icon/icon-github.svg'
-import email from '../../public/assets/icon/icon-email.svg'
-import linkedin from '../../public/assets/icon/icon-linkedin.svg'
+import Hero from "../components/Hero.astro"
 import Card from "../components/Card.astro"
+import AboutMe from "../components/AboutMe.astro"
 import BaseLayout from '../layout/BaseLayout.astro'
 const projects = [
 	{
@@ -17,85 +15,6 @@ const projects = [
 ]
 ---
 <style>
-	.hero {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		min-height: 270px;
-		padding: 0 var(--padding-container);
-	}
-	.hero__welcome h1 {
-		margin-bottom: 16px;
-	}
-	.hero__font--light {
-		font-family: 'mulish';
-		font-weight: 600;
-		font-size: 20px;
-	}
-	.hero__font--bold {
-		display: block;
-		font-family: 'mulish';
-		font-weight: 700;
-		font-size: 24px;
-	}
-	.hero__foto {
-		display: none;
-	}
-	.socials__container {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 18px;
-	}
-	@media (min-width: 700px) {
-		.hero {
-			padding-top: var(--padding-container-tb);
-			padding-bottom: var(--padding-container-tb);
-		}
-		.hero__foto {
-			display: block;
-		}
-		.hero {
-			justify-content: space-between;
-		}
-		.hero__welcome {
-			flex-grow: 1;
-			flex-basis: 0;
-			text-align: left;
-		}
-		.hero__font--light {
-			font-size: 24px;
-		}
-		.hero__font--bold {
-			font-size: 28px;
-		}
-		.socials__container li a img {
-			width: 30px;
-		}
-		.hero__foto {
-			flex-grow: 1;
-			flex-basis: 0;
-		}
-		.foto__container img {
-			width: 70%;
-			margin: 0 auto;
-			border-radius: 50%;
-		}
-		.socials__container {
-			justify-content: flex-start;
-		}
-	}
-	.about-me {
-		background-color: #202225;
-		color: #ffffff;
-		padding: var(--padding-container-tb) var(--padding-container);
-		text-align: center;
-	}
-	.about-me__introduction {
-		width: 80%;
-		margin: 0 auto;
-	}
 	.title__section {
 		font-family: 'inter';
 		font-weight: 800;
@@ -142,45 +61,31 @@ const projects = [
 		justify-items: center;
 		gap: 10px 0;
 	}
+	@media (min-width: 1024px) {
+		.technologies__container {
+			max-width: 750px;
+			display: flex;
+			justify-content: space-between;
+		}
+		.technologies__image {
+			width: 100px;
+		}
+	}
+	@media (min-width: 1300px) {
+		.technologies__container {
+			max-width: 750px;
+		}
+	}
 </style>
 <BaseLayout>
-	<section class="hero">
-		<div class="hero__welcome">
-			<span class="hero__font--light">¡Hey! 👋🏾</span>
-			<h1 class="">
-				<span class="hero__font--light">
-					Soy Alan Luna,
-				</span>
-				<span class="hero__font--bold">
-					Desarrollador Frontend
-				</span>
-			</h1>
-			<ul class="socials__container">
-				<li><a href=""><img src={ github } alt=""></a></li>
-				<li><a href=""><img src={ email } alt=""></a></li>
-				<li><a href=""><img src={ linkedin } alt=""></a></li>
-			</ul>
-		</div>
-		<div class="hero__foto">
-			<div class="foto__container">
-				<img src={ Alan } alt="Foto de Alan Luna">
-			</div>
-		</div>
-	</section>
-	<section class="about-me">
-		<h2 class="title__section">SOBRE MI</h2>
-		<div class="about-me__introduction">
-			<p>Desarrollador frontend, apasionado por las tecnologias, que le gusta crear páginas web y aplicaciones visualmente atractivas y fáciles de usar.</p>
-			<p>Como desarrollador frontend estoy especializado en mejorar el rendimiento de las paginas web o aplicaciones, la experiencia de usuario y la accesibilidad de las mismas.</p>
-			<p>Gracias por tomar el tiempo de leeme. Si tienes alguna pregunta  o te gustaria discutir sobre alguna potencial proyecto, sientete libre de contactarme.</p>
-		</div>
-	</section>
+	<Hero />
+	<AboutMe />
 	<section class="projects">
-		<h2 class="title__section">PROYECTOS</h2>
+		<h2 class="title__section isHidden" data-effect="fadeIn">PROYECTOS</h2>
 		<ul class="projects__container">
 			{
 				projects.map( project => (
-					<li>
+					<li class="isHidden" data-effect="fadeIn">
 						<Card title={ project.title } url={ project.url } />
 					</li>
 				))
@@ -188,16 +93,34 @@ const projects = [
 		</ul>
 	</section>
 	<section class="technologies">
-		<ul class="technologies__container">
-			<li><img src="/public/assets/icon/icon-html.svg" alt=""></li>
-			<li><img src="/public/assets/icon/icon-css.svg" alt=""></li>
-			<li><img src="/public/assets/icon/icon-js.svg" alt=""></li>
-			<li><img src="/public/assets/icon/icon-react.svg" alt=""></li>
-			<li><img src="/public/assets/icon/icon-git.svg" alt=""></li>
-			<li><img src="/public/assets/icon/icon-figma.svg" alt=""></li>
+		<ul class="technologies__container isHidden" data-effect="fadeIn">
+			<li><img class="technologies__image" src="/public/assets/icon/icon-html.svg" alt=""></li>
+			<li><img class="technologies__image" src="/public/assets/icon/icon-css.svg" alt=""></li>
+			<li><img class="technologies__image" src="/public/assets/icon/icon-js.svg" alt=""></li>
+			<li><img class="technologies__image" src="/public/assets/icon/icon-react.svg" alt=""></li>
+			<li><img class="technologies__image" src="/public/assets/icon/icon-git.svg" alt=""></li>
+			<li><img class="technologies__image" src="/public/assets/icon/icon-figma.svg" alt=""></li>
 		</ul>
 	</section>
 </BaseLayout>
+<script>
+	let elements = document.querySelectorAll('[data-effect="fadeIn"]')
+
+	const observer = new IntersectionObserver((entries) => {
+
+		entries.forEach((entry: any) => {
+			if(entry.isIntersecting) {
+				entry.target.classList.add("fadeInUp")
+				entry.target.classList.remove('isHidden')
+				observer.unobserve(entry.target);
+			} 
+		})
+
+	})
+
+	elements.forEach(element => observer.observe(element))
+
+</script>
 
 
 

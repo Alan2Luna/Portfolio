@@ -1,0 +1,60 @@
+---
+
+---
+<style>
+    .about-me {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100vh;
+		background-color: #202225;
+		color: #ffffff;
+		padding: var(--padding-container-tb) var(--padding-container);
+		text-align: center;
+	}
+	.about-me__image-container {
+		display: none;
+	}
+	.about-me__introduction {
+		width: 80%;
+		margin: 0 auto;
+	}
+	@media (min-width: 700px) {
+		.about-me__introduction p {
+			font-size: 18px;
+		}
+	}
+	@media (min-width: 1024px) {
+		.about-me__container {
+			display: flex;
+			gap: 20px;
+		}
+		.about-me__introduction {
+			width: 50%;
+			text-align: left;
+		}
+		.about-me__introduction p:first-child {
+			margin-top: 0;
+		} 
+		.about-me__image-container {
+			display: initial;
+			width: 50%;
+		}
+		.about-me__image-container img {
+			width: 100%;
+		}
+	}
+</style>
+<section class="about-me">
+    <h2 class="title__section isHidden" data-effect="fadeIn">SOBRE MI</h2>
+    <div class="about-me__container isHidden" data-effect="fadeIn">
+        <div class="about-me__image-container">
+            <img src="../../public/assets/images/nose.png" alt="">
+        </div>
+        <div class="about-me__introduction">
+            <p>Desarrollador frontend, apasionado por las tecnologias, que le gusta crear páginas web y aplicaciones visualmente atractivas y fáciles de usar.</p>
+            <p>Como desarrollador frontend estoy especializado en mejorar el rendimiento de las paginas web o aplicaciones, la experiencia de usuario y la accesibilidad de las mismas.</p>
+            <p>Gracias por tomar el tiempo de leeme. Si tienes alguna pregunta  o te gustaria discutir sobre alguna potencial proyecto, sientete libre de contactarme.</p>
+        </div>
+    </div>
+</section>
