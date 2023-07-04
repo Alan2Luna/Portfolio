@@ -129,7 +129,14 @@ const links = [
             {
                 links.map( link => (
                 <li>
-                    <a class="header__link" href={ link.href }>{ link.content }</a>
+                    <a 
+                        class="header__link" 
+                        href={ link.href }
+                        target={ link.download ? '_blank' : '_self'}
+                        rel="noopener noreferrer"
+                    >
+                        { link.content }
+                    </a>
                 </li>
                 ))
             }       
