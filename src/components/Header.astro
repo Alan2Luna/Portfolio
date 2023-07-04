@@ -1,5 +1,6 @@
 ---
-import hamburger from "../../public/assets/icon/icon_hamburger.svg"
+import hamburger from "../../public/assets/icon/icon-hamburger.svg"
+import download from "../../public/assets/icon/icon-download.svg"
 const links = [
     {
         content: 'INICIO',
@@ -75,6 +76,10 @@ const links = [
         font-weight: bold;
         font-size: 1.2em;
     }
+    .header__link--cv {
+        display: flex;
+        gap: 4px;
+    }
 
     @media (min-width: 700px) {
         .header__hamburger {
@@ -98,6 +103,9 @@ const links = [
     @media (min-width: 1024px) {
         .header__link {
             font-size: 1.2em;
+        }
+        .header__link--cv img {
+            width: 26px;
         }
         .header__navBar ul {
             gap: 30px;
@@ -130,11 +138,14 @@ const links = [
                 links.map( link => (
                 <li>
                     <a 
-                        class="header__link" 
+                        class={`header__link ${link.download ? 'header__link--cv' : ''}`}                        
                         href={ link.href }
                         target={ link.download ? '_blank' : '_self'}
                         rel="noopener noreferrer"
                     >
+                        { 
+                            link.download && <img src={ download } alt="" />
+                        }
                         { link.content }
                     </a>
                 </li>
