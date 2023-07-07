@@ -56,13 +56,16 @@ const links = [
         right: 0;
         z-index: 3;
         background-color: rgba(0, 0, 0, 0.5);
+        overflow: hidden;
     }
+
+
 
     .header__navBar.is-active {
         display: block;
     }
 
-    .header__navBar ul {
+    .header__navBar.is-active ul {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -70,6 +73,8 @@ const links = [
         gap: 16px;
         height: 40%;
         background-color: #FBD065;
+        will-change: transform;
+        animation: fadeInRight .5s ease forwards;
     }
 
     .header__link {
@@ -93,6 +98,7 @@ const links = [
             position: initial;
         }
         .header__navBar ul {
+            display: flex;
             flex-direction: row;
             gap: 20px;
         }
@@ -123,6 +129,15 @@ const links = [
         .header__navBar ul {
             gap: 42px;
         }
+    }
+    
+    @keyframes fadeInRight {
+        0% {
+            transform:translateX(100vw);
+        }
+        100% {
+            transform:translateX(0px);
+        } 
     }
 
 </style>
@@ -159,6 +174,7 @@ const links = [
 <script type="module">
 	const $btn = document.querySelector('.header__hamburger')
 	const $navBar = document.querySelector('#navBar')
+    const $nav = document.querySelector('#navBar ul')
     const $img = document.querySelector('.icon__hamburger')
 
 	$btn.addEventListener('click', () => {
