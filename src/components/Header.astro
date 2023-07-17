@@ -4,17 +4,17 @@ import download from "../../public/assets/icon/icon-download.svg"
 const links = [
     {
         content: 'INICIO',
-        href: '#INICIO',
+        href: '#inicio',
         download: false
     }, 
     {
         content: 'SOBRE MI',
-        href: '#SobreMi',
+        href: '#AboutMe',
         download: false
     },
     {
         content: 'PROYECTOS',
-        href: '#Proyectos',
+        href: '#Projects',
         download: false
     },
     {
@@ -59,7 +59,9 @@ const links = [
         overflow: hidden;
     }
 
-
+    .header__navBar ul {
+        //will-change: transform;
+    }
 
     .header__navBar.is-active {
         display: block;
@@ -73,8 +75,7 @@ const links = [
         gap: 16px;
         height: 40%;
         background-color: #FBD065;
-        will-change: transform;
-        animation: fadeInRight .5s ease forwards;
+        animation: fadeInRight .3s ease forwards;
     }
 
     .header__link {
