@@ -44,6 +44,21 @@ import linkedin from '../../public/assets/icon/icon-linkedin.svg'
 		height: 40px;
 		width: 40px;
 	}
+	.underline__marker-style {
+		position: relative;
+		display: inline-block;
+	}
+	.underline__marker-style::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: 2px;
+		width: 100%;
+		height: 14px;
+		transform: skew(-15deg);
+		background: rgb(243 55 19 / 70%);
+		z-index: -1;
+	}
 	@media (min-width: 700px) {
 		.hero {
 			padding-top: var(--padding-container-tb);
@@ -75,6 +90,7 @@ import linkedin from '../../public/assets/icon/icon-linkedin.svg'
 		}
 		.foto__container img {
 			width: 70%;
+			max-width: 500px;
 			margin: 0 auto;
 			border-radius: 50%;
 		}
@@ -93,15 +109,31 @@ import linkedin from '../../public/assets/icon/icon-linkedin.svg'
 			width: 38px;
 		}
 	}
+
+	@media (min-width: 1220px) {
+		.foto__container img {
+			width: 100%;
+		}
+		.hero__font--light {
+			font-size: 40px;
+		}
+		.hero__font--bold {
+			font-size: 48px;
+		}
+		.socials__container li a img {
+			width: 54px;
+			height: 54px;
+		}
+	}
 </style>
-<section class="hero">
+<section id="Hero" class="hero">
     <div class="hero__welcome isHidden" data-effect="fadeIn">
         <span class="hero__font--light hero__span">¡Hey! 👋🏾</span>
         <h1 class="introduce__myself">
             <span class="hero__font--light hero__span">
                 Soy Alan Luna,
             </span>
-            <span class="hero__font--bold">
+            <span class="hero__font--bold underline__marker-style">
                 Desarrollador Frontend
             </span>
         </h1>
